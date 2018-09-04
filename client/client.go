@@ -58,7 +58,7 @@ func (c *Client) Get(key string) (string, bool) {
 
 	// read with timeout
 	n := 0
-	err := (*c.conn).SetReadDeadline(time.Now().Add(1 * time.Second))
+	err := (*c.conn).SetReadDeadline(time.Now().Add(3 * time.Second))
 	if err != nil {
 		fmt.Println("SetReadDeadline failed:", err)
 		return "", false
