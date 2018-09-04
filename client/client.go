@@ -3,6 +3,7 @@ package client
 import (
 	"fmt"
 	"net"
+	"time"
 )
 
 // client methods do not work concurently
@@ -54,7 +55,30 @@ func (c *Client) Get(key string) (string, bool) {
 	}
 	(*c.conn).Write([]byte(msg))
 	bs := make([]byte, 2048)
-	n, err := (*c.conn).Read(bs)
+
+	// read with timeout
+	n := 0
+	err := (*c.conn).SetReadDeadline(time.Now().Add(1 * time.Second))
+	if err != nil {
+		fmt.Println("SetReadDeadline failed:", err)
+		return "", false
+	}
+	n, err = (*c.conn).Read(bs)
+	if err != nil {
+		if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
+			fmt.Println("Connection timed out")
+			return "", false
+		} else {
+			fmt.Println("Connection failed to respond")
+			return "", false
+		}
+	}
+
+	res := string(bs[:n])
+	if res == "$NONE" {
+		fmt.Println("Key not found")
+		return "", false
+	}
 	if err != nil {
 		fmt.Println(err)
 		return "", false

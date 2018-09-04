@@ -633,6 +633,7 @@ func getHandler(
 		max := ""
 		if len(votes) == 0 {
 			fmt.Printf("no answers")
+			max = "$NONE"
 		} else {
 			for max = range votes {
 			}
