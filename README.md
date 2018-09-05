@@ -15,6 +15,7 @@ It is architexturally simular to Cassandra,
 
 *Also it's writen by one cs student in the weekend between work and school.*
 
+
 ## Composition:
 
  - Async Event loop for requests
@@ -28,6 +29,7 @@ It is architexturally simular to Cassandra,
  - Lots of reader-writer optimizations
  
  And it's still pretty easy to read.
+
 
 ## Using Cassiopeia
 
@@ -47,6 +49,7 @@ You can also run multiple Cassio peers on a single node with the Cassiopeia pkg.
 3. Instantiate the client 
 
 The more friends the merrier :D especially when you moved  in too early and you're the only one of your friends in the city right now.
+
 
 ### Example: Single Peer
 ```go
@@ -84,6 +87,7 @@ func  main()  {
 	c.Disconnect()
 }
 ```
+
 ### Example: Multiple Peers
 ```go
 package main
@@ -150,6 +154,7 @@ func  main()  {
 }
 ```
 
+
 ## Writes
 
  1. Client requests write to some arbitrary node C in P2P cluster.   
@@ -164,6 +169,7 @@ func  main()  {
 4. Every node R<sub>i</sub> writes to mem-table cache and bloom-filter.
 
 **Write is complete!**  
+
 
 ## Read
  1. Client requests read to some arbitrary node C in P2P cluster.   
