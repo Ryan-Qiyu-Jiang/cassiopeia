@@ -49,6 +49,7 @@ func (c *Client) Set(key string, val string) bool {
 
 // Get blocking
 func (c *Client) Get(key string) (string, bool) {
+	time.Sleep(time.Millisecond * 200)
 	msg := fmt.Sprintf("get/%s;", key)
 	if c.conn == nil {
 		return "", false

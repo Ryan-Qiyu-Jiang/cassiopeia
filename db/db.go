@@ -383,10 +383,10 @@ func NewDB(ids ...int) *DB {
 	db := &DB{
 		ht:            map[string]string{},
 		id:            id,
-		flushCounter:  4,
-		flushDefault:  4,
-		squashCounter: 4,
-		squashDefault: 4,
+		flushCounter:  100,
+		flushDefault:  100,
+		squashCounter: 20,
+		squashDefault: 20,
 		bf:            bloom.NewBloom(),
 	}
 	return db

@@ -6,6 +6,7 @@ import (
 	"net"
 	"os"
 	"sync"
+	"time"
 )
 
 // FindFriends connects peers with addrs in hosts param
@@ -28,6 +29,7 @@ func FindFriends(hosts []string) {
 		}(host)
 	}
 	wg.Wait()
+	time.Sleep(time.Second * 2)
 }
 
 func main() {
