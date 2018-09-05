@@ -1,11 +1,14 @@
 # Cassiopeia
 
 *Like Cassandra but worse.*
+
 Cassiopeia is a distributed hash-table based off Cassandra, with pieces of other systems.
 Written in go, it also has a **client**, **cli** and importable **package** runnable on single and multiple machines.
 
 Cassio offers **strong consistency** while prioritizing *fast writes*. 
+
 Cassiopeia is **fault-tolerent**, and *immediately* updates revived nodes.
+
 Cassiopeia is **elastic** and easily supports birth and death of peers.
 
 It is architexturally simular to Cassandra, 
