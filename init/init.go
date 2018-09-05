@@ -1,4 +1,4 @@
-package main
+package init
 
 import (
 	"fmt"
@@ -7,6 +7,28 @@ import (
 	"os"
 	"sync"
 )
+
+// FindFriends connects peers with addrs in hosts param
+func FindFriends(hosts []string) {
+	wg := sync.WaitGroup{}
+	for _, host := range hosts {
+		wg.Add(1)
+		go func(host string) {
+			conn, err := net.Dial("tcp", host)
+			if err != nil {
+				panic(err)
+			}
+			defer conn.Close()
+			for _, h := range hosts {
+				//if host != h {
+				io.WriteString(conn, fmt.Sprintf("new/%s;", h))
+				//}
+			}
+			wg.Done()
+		}(host)
+	}
+	wg.Wait()
+}
 
 func main() {
 	var hosts []string
