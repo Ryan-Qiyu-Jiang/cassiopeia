@@ -2,9 +2,9 @@ package db
 
 import (
 	"bufio"
+	"cassiopeia/bloom"
 	"fmt"
 	"io/ioutil"
-	"node/bloom"
 	"os"
 	"sort"
 	"strings"

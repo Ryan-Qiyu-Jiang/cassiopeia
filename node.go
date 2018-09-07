@@ -1,15 +1,15 @@
-package node
+package main
 
 import (
+	"cassiopeia/db"
+	ms "cassiopeia/membership"
+	"cassiopeia/set"
 	"fmt"
 	"hash/fnv"
 	"io"
 	"math"
 	"math/rand"
 	"net"
-	"node/db"
-	ms "node/membership"
-	"node/set"
 	"os"
 	"strconv"
 	"strings"

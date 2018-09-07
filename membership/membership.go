@@ -1,9 +1,9 @@
 package membership
 
 import (
+	"cassiopeia/set"
 	"fmt"
 	"net"
-	"node/set"
 	"strconv"
 	"strings"
 	"sync"
