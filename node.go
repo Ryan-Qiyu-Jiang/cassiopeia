@@ -63,7 +63,7 @@ func NewNode(ip string, port string) {
 	var mResChans sync.RWMutex
 	go heartBeating(&db, &mDB, &msl, &mMSL, &reqID, &resChans)
 
-	ln, err := net.Listen("tcp", host)
+	ln, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		panic(err)
 	}
