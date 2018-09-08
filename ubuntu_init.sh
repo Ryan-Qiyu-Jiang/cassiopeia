@@ -17,6 +17,7 @@ cd projects
 mkdir src
 cd src
 git clone https://github.com/Ryan-Qiyu-Jiang/cassiopeia.git
+git checkout exec
 go get github.com/spaolacci/murmur3
 go install cassiopeia
 
