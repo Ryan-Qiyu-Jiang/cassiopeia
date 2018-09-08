@@ -20,5 +20,4 @@ git clone https://github.com/Ryan-Qiyu-Jiang/cassiopeia.git
 go get github.com/spaolacci/murmur3
 go install cassiopeia
 
-tmux new -s cass
 $GOPATH/bin/cassiopeia
