@@ -10,7 +10,7 @@ import (
 	"github.com/spaolacci/murmur3"
 )
 
-// BloomFilter is a struct for a probablitic answer to "has?"
+// BloomFilter is a struct for a probablitic  answer to "has?"
 type BloomFilter struct {
 	bitArr  []bool
 	num     int
