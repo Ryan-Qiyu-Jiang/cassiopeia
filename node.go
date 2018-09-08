@@ -18,10 +18,10 @@ import (
 	"time"
 )
 
-const readMin = 2
-const readNum = 2
-const writeNum = 2
-const chanNum = 5
+var readMin = 2
+var readNum = 2
+var writeNum = 2
+var chanNum = 1000
 
 // Member is ht of peer node tcp connections
 type Member map[string]*net.Conn
@@ -37,7 +37,20 @@ func newMembers() *Members {
 }
 
 // NewNode starts a replica node proccess
-func NewNode(ip string, port string) {
+func NewNode(ip string, port string, config ...int) {
+	numCof := len(config)
+	if numCof > 0 {
+		readMin = config[0]
+		if numCof > 1 {
+			readNum = config[1]
+			if numCof > 2 {
+				readNum = config[2]
+				if numCof > 3 {
+					chanNum = config[3]
+				}
+			}
+		}
+	}
 	var mMSL sync.RWMutex
 	var mDB sync.RWMutex
 
