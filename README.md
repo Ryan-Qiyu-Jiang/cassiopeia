@@ -29,7 +29,7 @@ It is architecturally similar to Cassandra,
  - Tunable consistency
  - Lots of reader-writer optimizations
  
-And it's still pretty easy to read.
+And it's pretty easy to read the code.
 
 
 ## Using Cassiopeia
@@ -57,7 +57,7 @@ Other platforms work as similarly.
  3. Instantiate the client 
  4. Have a blast :)
 
-You can also run multiple Cassio peers on a single node with the Cassiopeia pkg.
+*Running multiple Cassio peers on a single node with the Cassiopeia pkg.*
 
 1. Make a thread for each node
 2. Run the init function
